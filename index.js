@@ -7,41 +7,37 @@ const screen = document.querySelector('.screen span');
 
 btns.forEach(function(btn) {
     btn.addEventListener('click', function() {
-        // if (btn.classList.contains('one')) {
-        //     screen.textContent = '1';
-        // }
-
         switch (true) {
 
             case btn.classList.contains('zero'):
                 screen.textContent = '0';
                 break;
             case btn.classList.contains('one'):
-                screen.textContent = '1';
+                screen.textContent += '1';
                 break;
             case btn.classList.contains('two'):
-                screen.textContent = '2';
+                screen.textContent += '2';
                 break;
             case btn.classList.contains('three'):
-                screen.textContent = '3';
+                screen.textContent += '3';
                 break;
             case btn.classList.contains('four'):
-                screen.textContent = '4';
+                screen.textContent += '4';
                 break;
             case btn.classList.contains('five'):
-                screen.textContent = '5';
+                screen.textContent += '5';
                 break;
             case btn.classList.contains('six'):
-                screen.textContent = '6';
+                screen.textContent += '6';
                 break;
             case btn.classList.contains('seven'):
-                screen.textContent = '7';
+                screen.textContent += '7';
                 break;
             case btn.classList.contains('eight'):
-                screen.textContent = '8';
+                screen.textContent += '8';
                 break;
             case btn.classList.contains('nine'):
-                screen.textContent = '9';
+                screen.textContent += '9';
                 break;
             case btn.classList.contains('multiply'):
                 screen.textContent = 'x';
