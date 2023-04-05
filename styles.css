@@ -35,16 +35,29 @@ body {
 
 .screen {
     flex: 1;
+    position: relative;
     border: 3px solid rgb(158, 182, 158);
     margin: 2rem;
     margin-bottom: 0;
     background-color: rgb(175, 190, 175);
 
     border-radius: 1rem;
+
+    
+}
+
+span {
+    position: absolute;
+    right: 1rem;
+    bottom: 0.2rem;
+
+    text-align: end;
+    font-size: 5rem;
+    color: rgb(32, 32, 32);
 }
 
 .numpad {
-    flex: 3;
+    flex: 4;
     /* border: 1px solid blue; */
     margin: 2rem;
 
@@ -61,7 +74,7 @@ body {
     
     text-align: center;
     vertical-align: middle;
-    line-height: 4.5rem;
+    line-height: 5rem;
 
     font-size: 2.5rem;
     font-weight: bold;
