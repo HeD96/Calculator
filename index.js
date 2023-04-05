@@ -40,7 +40,11 @@ btns.forEach(function(btn) {
                 screen.textContent += '9';
                 break;
             case btn.classList.contains('multiply'):
-                screen.textContent = 'x';
+
+                if (screen.textContent !== '') {
+                    screen.textContent += 'x';
+                }
+
                 break;
             case btn.classList.contains('add'):
                 screen.textContent = '+';
