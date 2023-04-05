@@ -1,6 +1,7 @@
 let num1 = 0;
 let num2 = 0;
 let operator = "";
+// const reg = /+/gi
 
 const btns = document.querySelectorAll('.btn');
 const screen = document.querySelector('.screen span');
@@ -41,13 +42,15 @@ btns.forEach(function(btn) {
                 break;
             case btn.classList.contains('multiply'):
 
-                if (screen.textContent !== '') {
+                if (screen.textContent !== '' && reg.test(screen.textContent) === false) {
                     screen.textContent += 'x';
                 }
-
                 break;
             case btn.classList.contains('add'):
-                screen.textContent = '+';
+
+            // if (screen.textContent !== '' && reg.test(screen.textContent) === false) {
+            //     screen.textContent += '+';
+            // }
                 break;
             case btn.classList.contains('subtract'):
                 screen.textContent = '-';
