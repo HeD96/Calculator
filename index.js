@@ -2,8 +2,8 @@ let numBuf = 0;
 let num1 = 0;
 let num2 = 0;
 let operator = "";
-const regNums = /[0-9]{1,5}[a-z]/g;
-const regOps = /[^\w]/
+const regNums = /[0-9]+/g;
+const regOps = /[^\d]/g
 
 const btns = document.querySelectorAll('.btn');
 const screen = document.querySelector('.screen span');
@@ -64,7 +64,7 @@ btns.forEach(function(btn) {
                 break;
 
             case btn.classList.contains('equal'):
-                operator = screen.textContent.match(regOps)[0];
+                operator = screen.textContent.match(regOps);
                 console.log(operator);
                 // console.log(screen.textContent.match(regOps));
                 Operate(num1, num2, operator);
