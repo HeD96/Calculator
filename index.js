@@ -1,6 +1,7 @@
 let numBuf = 0;
 let num1 = 0;
 let num2 = 0;
+let result = 0;
 let operator = "";
 const regNums = /[0-9]+/g;
 const regOps = /[^\d]/g
@@ -57,6 +58,7 @@ btns.forEach(function(btn) {
 
             case btn.classList.contains('clear'):
                 screen.textContent = '';
+                result = 0;
                 break;
             case btn.classList.contains('delete'):
                 
@@ -64,9 +66,12 @@ btns.forEach(function(btn) {
                 break;
 
             case btn.classList.contains('equal'):
-                operator = screen.textContent.match(regOps);
+                operator = screen.textContent.match(regOps)[0];
                 console.log(operator);
-                // console.log(screen.textContent.match(regOps));
+                num1 = parseInt(screen.textContent.match(regNums)[0]);
+                num2 = parseInt(screen.textContent.match(regNums)[1]);
+                console.log(num1, num2);
+
                 Operate(num1, num2, operator);
                 break;
         }
@@ -76,40 +81,46 @@ btns.forEach(function(btn) {
 function Operate(n1, n2, op) {
     switch (op) {
         case '+':
-            console.log('gotcha add');
-        // Add(n1, n2);
+        console.log(Add(n1, n2));
+        break;
     }
     switch (op) {
         case '-':
-            console.log('gotcha sub');
-        // Subtract(n1, n2);
+        console.log(Subtract(n1, n2));
+        break;
     }
     switch (op) {
         case '/':
-            console.log('gotcha divide');
-        // Divide(n1, n2);
+        console.log(Divide(n1, n2));
+        break;
     }
     switch (op) {
         case 'x':
-        console.log('gotcha multiply');
-        // Multiply(n1, n2);
+        console.log(Multiply(n1, n2));
+        break;
     }
 }
 
 function Add(a, b) {
+    screen.textContent = a + b;
+    result += a + b;
     return a + b;
 }
 
 function Substract(a, b) {
+    screen.textContent = a - b;
+    result += a - b;
     return a - b;
 }
 
 function Multiply(a, b) {
-    let result = a * b;
-    screen.textContent = result; 
-    // return a * b;
+    screen.textContent = a * b;
+    result += a * b;
+    return a * b;
 }
 
 function Divide(a, b) {
+    screen.textContent = a / b;
+    result += a / b;
     return a / b;
 }
