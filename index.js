@@ -1,7 +1,9 @@
+let numBuf = 0;
 let num1 = 0;
 let num2 = 0;
 let operator = "";
-// const reg = /+/gi
+const regNums = /[0-9]{1,5}[a-z]/g;
+const regOps = /[^\w]/
 
 const btns = document.querySelectorAll('.btn');
 const screen = document.querySelector('.screen span');
@@ -41,32 +43,57 @@ btns.forEach(function(btn) {
                 screen.textContent += '9';
                 break;
             case btn.classList.contains('multiply'):
-
-                if (screen.textContent !== '' && reg.test(screen.textContent) === false) {
-                    screen.textContent += 'x';
-                }
+                screen.textContent += 'x';
                 break;
             case btn.classList.contains('add'):
-
-            // if (screen.textContent !== '' && reg.test(screen.textContent) === false) {
-            //     screen.textContent += '+';
-            // }
+                screen.textContent += '+';
                 break;
             case btn.classList.contains('subtract'):
-                screen.textContent = '-';
+                screen.textContent += '-';
                 break;
             case btn.classList.contains('divide'):
-                screen.textContent = '/';
+                screen.textContent += '/';
                 break;
+
+            case btn.classList.contains('clear'):
+                screen.textContent = '';
+                break;
+            case btn.classList.contains('delete'):
+                
+                screen.textContent.substring(0, str.length - 1);
+                break;
+
             case btn.classList.contains('equal'):
-                screen.textContent = '=';
+                operator = screen.textContent.match(regOps)[0];
+                console.log(operator);
+                // console.log(screen.textContent.match(regOps));
+                Operate(num1, num2, operator);
                 break;
         }
     });
 });
 
 function Operate(n1, n2, op) {
-    
+    switch (op) {
+        case '+':
+            console.log('gotcha add');
+        // Add(n1, n2);
+    }
+    switch (op) {
+        case '-':
+            console.log('gotcha sub');
+        // Subtract(n1, n2);
+    }
+    switch (op) {
+        case '/':
+            console.log('gotcha divide');
+        // Divide(n1, n2);
+    }
+    switch (op) {
+        case 'x':
+        console.log('gotcha multiply');
+        // Multiply(n1, n2);
+    }
 }
 
 function Add(a, b) {
@@ -78,7 +105,9 @@ function Substract(a, b) {
 }
 
 function Multiply(a, b) {
-    return a * b;
+    let result = a * b;
+    screen.textContent = result; 
+    // return a * b;
 }
 
 function Divide(a, b) {
