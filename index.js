@@ -4,17 +4,25 @@ let num2 = 0;
 let result = 0;
 let operator = "";
 const regNums = /[0-9]+/g;
-const regOps = /[^\d]/g
+const regOps = /[^\d]/g;
 
 const btns = document.querySelectorAll('.btn');
 const screen = document.querySelector('.screen span');
+screen.textContent = '0';
 
 btns.forEach(function(btn) {
     btn.addEventListener('click', function() {
+
+        if (screen.textContent === '0') {
+            screen.textContent = '';
+        }
+
         switch (true) {
 
             case btn.classList.contains('zero'):
-                screen.textContent = '0';
+                if (screen.textContent !== '0') {
+                    screen.textContent += '0';
+                }
                 break;
             case btn.classList.contains('one'):
                 screen.textContent += '1';
@@ -46,8 +54,10 @@ btns.forEach(function(btn) {
             case btn.classList.contains('multiply'):
                 screen.textContent += 'x';
                 break;
-            case btn.classList.contains('add'):
-                screen.textContent += '+';
+            case btn.classList.contains('add'): 
+                if (screen.textContent !== '') {
+                    screen.textContent += '+';
+                }
                 break;
             case btn.classList.contains('subtract'):
                 screen.textContent += '-';
@@ -57,12 +67,15 @@ btns.forEach(function(btn) {
                 break;
 
             case btn.classList.contains('clear'):
-                screen.textContent = '';
+                screen.textContent = '0';
                 result = 0;
                 break;
             case btn.classList.contains('delete'):
-                
-                screen.textContent.substring(0, str.length - 1);
+                if (screen.textContent.length > 1) {
+                    screen.textContent = screen.textContent.slice(0, -1);
+                } else {
+                    screen.textContent = '0';
+                }
                 break;
 
             case btn.classList.contains('equal'):
@@ -103,24 +116,28 @@ function Operate(n1, n2, op) {
 
 function Add(a, b) {
     screen.textContent = a + b;
-    result += a + b;
+    result = a + b;
+    console.log(result);
     return a + b;
 }
 
-function Substract(a, b) {
+function Subtract(a, b) {
     screen.textContent = a - b;
-    result += a - b;
+    result = a - b;
+    console.log(result);
     return a - b;
 }
 
 function Multiply(a, b) {
     screen.textContent = a * b;
-    result += a * b;
+    result = a * b;
+    console.log(result);
     return a * b;
 }
 
 function Divide(a, b) {
     screen.textContent = a / b;
-    result += a / b;
+    result = a / b;
+    console.log(result);
     return a / b;
 }
